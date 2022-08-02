@@ -57,6 +57,21 @@ const Section: React.FC<
   );
 };
 
+const generateRandomMatrix = (h?: number, w?: number) => {
+  const maxDimension = 10;
+  const maxNumber = 10;
+  const height = h || Math.floor(Math.random() * maxDimension);
+  const width = w || Math.floor(Math.random() * maxDimension);
+  const matrix: number[][] = [];
+  for (let i = 0; i < height; i++) {
+    matrix.push([]);
+    for (let j = 0; j < width; j++) {
+      matrix[i].push(Math.floor(Math.random() * maxNumber) + 1);
+    }
+  }
+  return matrix;
+};
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
